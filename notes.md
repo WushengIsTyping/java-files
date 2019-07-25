@@ -1,5 +1,7 @@
 # NOTES FOR JAVA
 
+> 本文是我通过[廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/1252599548343744)自学Java的笔记，笔记中有些表达习惯可能遵循这个网站。这不是一个系统的学习文档，只是我学习过程中觉得有必要记下的东西，方便我未来查看检索，如果想系统的学习Java，可以参考前面提到的网站。文中有些内容是我个人的理解，可能并不准确，学习过程中会再慢慢修改。
+
 ## Game Terms
 1. **Class**
 ```
@@ -94,6 +96,19 @@ public String method1(String str, Int integer){}
 * 静态方法属于class，不属于实例，所以无法使用`this`关键字
 * interface不能有实例字段，但可以有静态字段，且必须为final，如`public static final int MALE = 1;`，因为修饰词都一样，可以简写为`int MALE = 1;`
 
+10. **包和包的鸡毛**
+* 包就像收纳盒，添加`package`把同名的不同类放在不同的盒子里，包可以是多层结构，大盒套小盒
+* 在Java文件第一行写`package large.medium.small.packageName;`即可，注意packageName要和这个文件所在的folder同名
+* 好像必须有包结构才写`package`？
+  ![avatar](images/packageTest.png)
+  我的Java files里的零散文件如果加包名会报错(the declared package "*" does not match the expected package "")
+* 包作用域
+  * 不用public，protected，private修饰的**字段和方法**就是包作用域
+  * 位于同一个包的类，可以访问包作用域的字段和方法
+* `import`导入完整类名可以使用这个类，不推荐用*之间导入整个包，因为有时候会不知道某个类输入哪个包
+* `import static`可以导入静态字段或静态类
+
+
 
 ## Do you know this?
 1. 执行Java文件的时候需要用`javac`把`.java`转化成`.class`然后用java执行（https://www.liaoxuefeng.com/wiki/1252599548343744/1255878730977024）
@@ -121,6 +136,10 @@ public String method1(String str, Int integer){}
     ```
 10. 方法输入参数可以写为`public void setNames(String... names){}`，输入为可变参数，其实就是String类型的数组，但是调用方法的时候不用自己`new String [] = names;`， 可以直接`dorm2207.setNames("Wusheng", "Jingyu", "Idd", "Krystal Ruixue Yang");`
 11. 方法参数的绑定没太懂，看这页 https://www.liaoxuefeng.com/wiki/1252599548343744/1260452774408320
+12. `final` can help you leave the whole world
+13. 方法内部定义的变量成为局部变量，class的字段有private，protected，public，或package的作用域，method里的字段都是局部字段
+14. `classpath`就是一组目录的集合，用来指示JVM如何搜索class，不要把Java核心库添加到classpath (https://www.liaoxuefeng.com/wiki/1252599548343744/1260466914339296)
+15. jar包就是zip格式的压缩文件，可以把散落的`.class`文件打包进去 (https://www.liaoxuefeng.com/wiki/1252599548343744/1260466914339296)
 
 
 # Grammar
